@@ -1,0 +1,57 @@
+Task
+----
+Coding Challenge
+Write a command line program in the language of your choice that will take operations on fractions as an input and produce a fractional result.
+Legal operators shall be *, /, +, - (multiply, divide, add, subtract)
+Operands and operators shall be separated by one or more spaces
+Mixed numbers will be represented by whole_numerator/denominator. e.g. “3_1/4”
+Improper fractions and whole numbers are also allowed as operands.
+examples:
+? 1/2 * 3_3/4
+= 1_7/8
+? 2_3/8 + 9/8
+3_1/2
+
+
+Testing Challenge
+-------------------
+
+I have created Perl script onelogin.pl which takes input in form of <one [fractional] number> <operator> <another [fractional] number>
+and prints result; script returns 0 if completes successfully.
+
+Limitations and disclaimer
+--------------------------
+Perl implicitly converts numbers exceeding 2147483647 to float numbers (with rounding). So, if input contains value of nominator,
+denominator or whole number bigger than 2147483647 one should not expect the result to be accurate.
+I did not test if that rounding of floating-point numbers has been following IEEE standards. 
+I did not use any Perl libraries (like Number::Fraction) for handling fractional numbers
+
+Deployment
+----------
+No special deployent is necessary if you have Perl installed on your machine (Linux and Mac have Perl preinstalled; on Windows you may
+download and install Perl from  ActiveState http://www.ActiveState.com);
+
+Testing
+-------
+All test cases are included in the script (listed after this line '__LINE__ at the bottom of the script).
+Test cases include adding, substracting, multiplying and dividing fractional and whole numbers, both 
+positive and negative, though dealing with negative numbers were not in original reqs.
+I also created test cases for invalid input (e.g. invalid operator like '&').
+
+Maintenance
+-----------
+No maintenance is required unless new requirements are added, e.g. script should be deployed on Web or incorporated into Docker image.
+
+
+Future Changes
+--------------
+Scrpt needs to be refactored if requirements change. For example on one day customers may require that input to be
+in decimal numbers rather than in fractional (like NYSE decided to specify stock prices in decimal numbers rather than fractional).
+New requirement to operate on irrational numbers.
+New requirement to have input from a SQL query (and we shouls expect null if a table column we quiery data from is nullable).
+New requirement to operate on an array of fractional numbers rather than on two operands.
+New requirement to compare two fractional numbers.
+New requirement to round fractional numbers.
+New requirement to turn fractional number into phrase, like turn 1/2 to 'one half'.
+New requirement to vave mobile version of the script (to be written inJS.
+
